@@ -41,8 +41,4 @@ class FaqController extends Controller
 
         return redirect()->route('faq.index')->with('success', 'FAQ berhasil dihapus.');
     }
-
-
-    // view user
-    
 }

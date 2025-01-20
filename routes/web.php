@@ -54,8 +54,10 @@
             Route::get('admin/pesanan', [PesananController::class, 'indexAdmin'])->name('admin.pesanan.index');
             Route::post('admin/pesanan/{pesanan}/mark-paid', [PesananController::class, 'markAsPaid'])->name('admin.pesanan.mark-paid');
 
-            //
-            Route::resource('faq', FaqController::class)->except(['viewUser']);
+            Route::get('faq', [FaqController::class, 'index'])->name('faq.index');
+            Route::get('faq/create', [FaqController::class, 'create'])->name('faq.create');
+            Route::post('faq', [FaqController::class, 'store'])->name('faq.store');
+            Route::delete('faq/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
         });
 
         Route::get('/user', function () {
@@ -76,7 +78,5 @@
 
             Route::get('/konser/{id}', [PesananController::class, 'show'])->name('all-konser.show');
             Route::post('/pesanan', [PesananController::class, 'store'])->name('pesanan.store');
-
-            Route::get('faq', [FaqController::class, 'viewUser'])->name('faq.viewUser');
         });
     });
